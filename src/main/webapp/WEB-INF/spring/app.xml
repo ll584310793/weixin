@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="app" class="app.App" scope="singleton" init-method="init">
+		<property name="app_id" value="wx5b26be1997633238" />
+		<property name="app_name" value="问律师" />
+		<property name="app_secret" value="d544d4d35f449ad82c6ae0e457573056" />
+		<property name="api_key" value="7c156207f2f67d74ef1b8b81490a4f71" />
+		<property name="mch_id" value="1262738701" />
+		<property name="cert" value="/cert/apiclient_cert.p12" />
+		<property name="ip" value="120.76.192.186" />
+	</bean>
+	
+</beans>
