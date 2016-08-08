@@ -35,7 +35,8 @@
 					<label class="weui_label">红包个数</label>
 				</div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input name="count" class="weui_input" type="tel" value="1" placeholder="10">
+					<input name="count" class="weui_input" type="tel" value="1"
+						placeholder="10">
 				</div>
 				个
 			</div>
@@ -47,7 +48,8 @@
 					<label class="weui_label">总金额</label>
 				</div>
 				<div class="weui_cell_bd weui_cell_primary">
-					<input name="amount" class="weui_input" type="tel" value="0.01" placeholder="10">
+					<input name="amount" class="weui_input" type="tel" value="0.01"
+						placeholder="10">
 				</div>
 				元
 			</div>

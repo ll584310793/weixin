@@ -12,5 +12,5 @@
 		<property name="cert" value="/cert/apiclient_cert.p12" />
 		<property name="ip" value="120.76.192.186" />
 	</bean>
-	
+
 </beans>

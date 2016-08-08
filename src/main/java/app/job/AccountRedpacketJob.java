@@ -22,7 +22,7 @@ public class AccountRedpacketJob {
 	App app;
 
 	@Autowired
-	JdbcTemplate jdbcDao;
+	JdbcTemplate jdbcTemplate;
 
 	@Autowired
 	RedisTemplate<Serializable, Serializable> redisTemplate;
@@ -61,7 +61,7 @@ public class AccountRedpacketJob {
 			String sql = "insert into account_redpacket(account_id,redpacket_id,mode,amount,create_time)values(?,?,?,?,?)";
 			Object[] args = { rs.getAccount().getId(), rs.getRedpacket().getId(), rs.getMode(), rs.getAmount(),
 					rs.getCreate_time() };
-			jdbcDao.update(sql, args);
+			jdbcTemplate.update(sql, args);
 			log.info("send success,db::account_redpacket add...");
 			break;
 		case 0:// 发送成功，但结果集不成功

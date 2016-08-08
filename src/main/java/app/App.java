@@ -86,7 +86,7 @@ public class App {
 	}
 
 	public void update() {
-		log.info("updating....");
+		log.info("-app.update-");
 		// get token
 		Token token = TokenAPI.token(this.app_id, this.app_secret);
 		if (token != null && token.getAccess_token().isEmpty()) {
@@ -131,7 +131,7 @@ public class App {
 			String notify_url) {
 		Unifiedorder o = new Unifiedorder();
 		o.setOpenid(openid);// 微信用户公开id
-		o.setTotal_fee((int)(total_fee*100) + "");// 总金额
+		o.setTotal_fee((int) (total_fee * 100) + "");// 总金额
 		o.setSpbill_create_ip(spbill_create_ip);// 发放ip
 		o.setNotify_url(notify_url);// 回掉地址
 		o.setBody(body);// 发放内容

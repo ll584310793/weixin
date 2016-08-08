@@ -22,7 +22,8 @@
 		<c:forEach items="${redpackets }" var="r">
 			<div class="weui_cell">
 				<div class="weui_cell_bd weui_cell_primary">
-					<p>${r.nickname }<b>${r.money}.00</b>元</p>
+					<p>${r.nickname }<b>${r.money}.00</b>元
+					</p>
 				</div>
 				<div class="weui_cell_ft">${r.create_time }</div>
 			</div>

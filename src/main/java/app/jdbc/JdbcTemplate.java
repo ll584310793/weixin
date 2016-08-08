@@ -31,4 +31,10 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
 		return list != null && !list.isEmpty() ? list.get(0) : null;
 	}
 
+	public Long queryForLong(String sql, Object... args) {
+		Map<String, Object> map = this.queryForMap(sql, args);
+		String key = map.keySet().iterator().next();
+		return Long.parseLong((map.get(key).toString()));
+	}
+
 }

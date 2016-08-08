@@ -11,16 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import app.App;
 import app.domain.Account;
-import app.domain.AccountRedpacket;
 import app.domain.Redpacket;
 import app.service.AccountService;
 import app.service.RedpacketService;
-import app.web.util.*;
+import app.web.Convert;
+import app.web.Session;
 
 @Controller
 public class RedpacketController {
@@ -34,7 +33,7 @@ public class RedpacketController {
 	@Autowired
 	AccountService accountService;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "/redpackets", method = RequestMethod.GET)
 	public String index() {
 		return "/redpackets/index";
 	}
@@ -57,16 +56,12 @@ public class RedpacketController {
 		return mav;
 	}
 
-	@ResponseBody
 	@RequestMapping(value = "/redpackets/{id}/generate", method = RequestMethod.GET)
 	public ModelAndView open(@PathVariable Long id, HttpServletRequest request) {
-
 		ModelAndView mav = new ModelAndView();
-
-		Long account_id = WebUtil.getAccountId(request);
+		mav.setView(Convert.to(request));
 		String mode = request.getParameter("mode");
-
-		redpacketService.generate(id, account_id, mode);
+		mav.addObject("account_redpacket", redpacketService.generate(id, Session.getAccountId(request), mode));
 		return mav;
 	}
 
@@ -81,12 +76,11 @@ public class RedpacketController {
 	public ModelAndView create(HttpServletRequest request,
 			@RequestParam(value = "count", required = false) String count,
 			@RequestParam(value = "amount", required = false) String amount,
-			@RequestParam(value = "wishing", required = false) String wishing) {
-		// ,
-		// @RequestParam(value = "head", required = false) MultipartFile head
+			@RequestParam(value = "wishing", required = false) String wishing
+	// ,@RequestParam(value = "head", required = false) MultipartFile head
+	) {
 
-		Account account = accountService.get(WebUtil.getAccountId(request));
-
+		Account account = accountService.get(Session.getAccountId(request));
 		// String path =
 		// request.getSession().getServletContext().getRealPath("upload");
 		// String fileName = head.getOriginalFilename();
@@ -110,11 +104,9 @@ public class RedpacketController {
 		r.setCount(2L);
 		// r.setAmount(Double.parseDouble(amount));
 		// r.setCount(Long.parseLong(count));
-
 		redpacketService.add(r);
 
 		ModelAndView mav = new ModelAndView("redirect:/pay/" + r.getId());
-
 		return mav;
 	}
 

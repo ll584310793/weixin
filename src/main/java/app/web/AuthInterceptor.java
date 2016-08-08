@@ -1,4 +1,4 @@
-package app.web.interceptor;
+package app.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,9 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import app.App;
-import app.web.util.WebUtil;
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 	@Autowired
 	App app;
@@ -30,7 +29,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}
 		}
 		// is login
-		if (WebUtil.getAccountId(request) != null) {
+		if (Session.getAccountId(request) != null) {
 			return true;
 		}
 		// redirect_uri

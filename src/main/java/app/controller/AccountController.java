@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import app.App;
 import app.domain.Account;
 import app.service.AccountService;
-import app.web.util.WebUtil;
+import app.web.Session;
 
 @Controller
 public class AccountController {
@@ -35,7 +35,7 @@ public class AccountController {
 			return mav;
 		}
 		accountService.update(account);
-		WebUtil.setAccountId(request, account.getId());
+		Session.setAccountId(request, account.getId());
 		mav.setViewName("redirect:" + request.getParameter("state"));
 		return mav;
 	}

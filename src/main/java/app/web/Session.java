@@ -1,8 +1,8 @@
-package app.web.util;
+package app.web;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class WebUtil {
+public class Session {
 
 	public static Long getAccountId(HttpServletRequest request) {
 		Object o = request.getSession().getAttribute("account_id");
