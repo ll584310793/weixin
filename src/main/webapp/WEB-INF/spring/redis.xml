@@ -13,7 +13,7 @@
 	<bean id="connectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
 		destroy-method="destroy">
-		<property name="hostName" value="127.0.0.1" />
+		<property name="hostName" value="120.76.192.186" />
 		<property name="port" value="6379" />
 		<property name="password" value=".redis" />
 		<property name="usePool" value="true" />

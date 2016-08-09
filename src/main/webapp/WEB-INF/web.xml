@@ -12,6 +12,15 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<filter>
+		<filter-name>HiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HiddenHttpMethodFilter</filter-name>
+		<servlet-name>appServlet</servlet-name>
+	</filter-mapping>
+
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -61,15 +70,6 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.txt</url-pattern>
 	</servlet-mapping>
-
-	<filter>
-		<filter-name>HiddenHttpMethodFilter</filter-name>
-		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>HiddenHttpMethodFilter</filter-name>
-		<servlet-name>appServlet</servlet-name>
-	</filter-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
