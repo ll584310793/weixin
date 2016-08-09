@@ -15,10 +15,10 @@ import app.jdbc.JdbcTemplate;
 public class AccountService {
 
 	@Autowired
-	JdbcTemplate jdbcTemplate;
+	public JdbcTemplate jdbcTemplate;
 
 	@Autowired
-	RedisTemplate<Serializable, Serializable> redisTemplate;
+	public RedisTemplate<Serializable, Serializable> redisTemplate;
 
 	public Account get(Long id) {
 		return (Account) redisTemplate.opsForHash().get("accounts", id);
