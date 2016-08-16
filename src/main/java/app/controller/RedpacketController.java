@@ -18,7 +18,6 @@ import app.domain.Account;
 import app.domain.Redpacket;
 import app.service.AccountService;
 import app.service.RedpacketService;
-import app.web.Convert;
 import app.web.Session;
 
 @Controller
@@ -59,7 +58,6 @@ public class RedpacketController {
 	@RequestMapping(value = "/redpackets/{id}/generate", method = RequestMethod.GET)
 	public ModelAndView open(@PathVariable Long id, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		mav.setView(Convert.to(request));
 		String mode = request.getParameter("mode");
 		mav.addObject("account_redpacket", redpacketService.generate(id, Session.getAccountId(request), mode));
 		return mav;

@@ -41,9 +41,6 @@ public class AccountRedpacketJob {
 	}
 
 	public void execute(AccountRedpacket rs) {
-		if (rs == null) {
-			return;
-		}
 		String openid = rs.getAccount().getOpenid();// 微信公开ip
 		String desc = app.app_name;// 描述
 		double amount = rs.getAmount();// 金额
