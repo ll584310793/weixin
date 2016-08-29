@@ -1,6 +1,0 @@
-spring boot<-tomcat
-maven + git + jenkins
-jdk
-tomcat集群
-mariadb集群
-redis集群

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <%@ page pageEncoding="UTF-8"%>
-<%@ include file="../imports.jsp"%>
+<%@ include file="../import.jsp"%>
 <title>${redpacket.nickname }的红包&nbsp;&nbsp;(${redpacket.amount }元)</title>
 <script type="text/javascript">
 	wx.config({

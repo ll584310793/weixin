@@ -2,7 +2,7 @@
 <head>
 <title>${redpacket.nickname }的红包(${redpacket.money }元)</title>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../imports.jsp"%>
+<%@ include file="../import.jsp"%>
 </head>
 <body>
 	<div class="weui_msg">

@@ -34,12 +34,12 @@ public class RedpacketController {
 
 	@RequestMapping(value = "/redpackets", method = RequestMethod.GET)
 	public String index() {
-		return "/redpackets/index";
+		return "/redpacket/index";
 	}
 
 	@RequestMapping(value = "/accounts/{id}/redpackets", method = RequestMethod.GET)
 	public ModelAndView redpackets(@PathVariable long id) {
-		ModelAndView mav = new ModelAndView("accounts/redpackets");
+		ModelAndView mav = new ModelAndView("account/redpacket");
 		mav.addObject("account", accountService.get(id));
 		List<Map<String, Object>> redpackets = redpacketService.jdbcTemplate
 				.queryForList("SELECT * FROM redpacket WHERE account_id=? ", id);
@@ -49,7 +49,7 @@ public class RedpacketController {
 
 	@RequestMapping(value = "/redpackets/{id}", method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable Long id, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("/redpackets/show");
+		ModelAndView mav = new ModelAndView("/redpacket/show");
 		mav.addObject("wx_config", app.generateWxConfig(request.getRequestURL().toString()));
 		mav.addObject("redpacket", redpacketService.get(id));
 		return mav;
@@ -65,7 +65,7 @@ public class RedpacketController {
 
 	@RequestMapping(value = "/redpackets/new", method = RequestMethod.GET)
 	public ModelAndView _new(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("/redpackets/new");
+		ModelAndView mav = new ModelAndView("/redpacket/new");
 		mav.addObject("wx_config", app.generateWxConfig(request.getRequestURL().toString()));
 		return mav;
 	}

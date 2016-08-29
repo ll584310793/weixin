@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../imports.jsp"%>
+<%@ include file="../import.jsp"%>
 <title>问律师红包-微信安全支付</title>
 <script type="text/javascript">
 	wx.config({

@@ -3,7 +3,7 @@
 <head>
 <title>问律师-发红包</title>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../imports.jsp"%>
+<%@ include file="../import.jsp"%>
 <script type="text/javascript">
 	wx.config({
 		debug : false,
