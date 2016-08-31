@@ -40,29 +40,29 @@ public class AccountRedpacketJob {
 		log.info("account_redpacket load over..");
 	}
 
-	public void execute(AccountRedpacket rs) {
-		String openid = rs.getAccount().getOpenid();// 微信公开ip
+	public void execute(AccountRedpacket accountRedpacket) {
+		String openid = accountRedpacket.getAccount().getOpenid();// 微信公开ip
 		String desc = app.app_name;// 描述
-		double amount = rs.getAmount();// 金额
-		String wishing = rs.getRedpacket().getWishing();// 祝语
+		double amount = accountRedpacket.getAmount();// 金额
+		String wishing = accountRedpacket.getRedpacket().getWishing();// 祝语
 		if (wishing == null || wishing.isEmpty()) {
 			wishing = "事事顺意.";
 		}
 		log.info("send redpacket");
 		log.info("openid : " + openid);
-		log.info("amount : " + rs.getAmount());
+		log.info("amount : " + accountRedpacket.getAmount());
 		log.info("desc : " + desc);
 		int r = app.sendRedpacket(openid, amount, desc, wishing);
 		switch (r) {
 		case 1: // 完全成功
 			String sql = "insert into account_redpacket(account_id,redpacket_id,mode,amount,create_time)values(?,?,?,?,?)";
-			Object[] args = { rs.getAccount().getId(), rs.getRedpacket().getId(), rs.getMode(), rs.getAmount(),
-					rs.getCreate_time() };
+			Object[] args = { accountRedpacket.getAccount().getId(), accountRedpacket.getRedpacket().getId(), accountRedpacket.getMode(), accountRedpacket.getAmount(),
+					accountRedpacket.getCreated_at() };
 			jdbcTemplate.update(sql, args);
 			log.info("send success,db::account_redpacket add...");
 			break;
 		case 0:// 发送成功，但结果集不成功
-			redisTemplate.opsForSet().add("account_redpacket/tomorrow", rs);
+			redisTemplate.opsForSet().add("account_redpacket/tomorrow", accountRedpacket);
 			log.info("send faild,redis::account_redpacket add...");
 			break;
 		case -1:// 发送失败

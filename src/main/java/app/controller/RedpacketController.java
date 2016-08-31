@@ -78,7 +78,6 @@ public class RedpacketController {
 	// ,@RequestParam(value = "head", required = false) MultipartFile head
 	) {
 
-		Account account = accountService.get(Session.getAccountId(request));
 		// String path =
 		// request.getSession().getServletContext().getRealPath("upload");
 		// String fileName = head.getOriginalFilename();
@@ -94,9 +93,9 @@ public class RedpacketController {
 		// }
 
 		Redpacket r = new Redpacket();
+		Account account = new Account();
+		account.setId(Session.getAccountId(request));
 		r.setAccount(account);
-		r.setNickname(account.getNickname());
-		r.setHead(account.getHead());
 		r.setWishing(wishing);
 		r.setAmount(2.0);
 		r.setCount(2L);

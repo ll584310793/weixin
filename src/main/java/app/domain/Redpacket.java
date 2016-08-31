@@ -1,6 +1,7 @@
 package app.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Random;
 
 @SuppressWarnings("serial")
@@ -11,8 +12,8 @@ public class Redpacket implements Serializable {
 	private Account account;
 
 	private String type;
-	private Long create_time;
-	private Long update_time;
+	private Date created_at;
+	private Date updated_at;
 	private String state;
 
 	private String nickname;
@@ -25,11 +26,7 @@ public class Redpacket implements Serializable {
 	private Long received_amount;
 	private double received_count;
 
-	/**
-	 * 随机红包
-	 */
 	public double generateRandomMoney() {
-		this.update_time = System.currentTimeMillis();
 		if (this.count == 1) {
 			this.count--;
 			return (double) Math.round(this.amount * 100) / 100;
@@ -47,11 +44,7 @@ public class Redpacket implements Serializable {
 		return money;
 	}
 
-	/**
-	 * 普通红包
-	 */
 	public double generateNormalMoney() {
-		this.update_time = System.currentTimeMillis();
 		if (this.count == 1) {
 			this.count--;
 			return (double) Math.round(this.amount * 100) / 100;
@@ -87,20 +80,20 @@ public class Redpacket implements Serializable {
 		this.type = type;
 	}
 
-	public Long getCreate_time() {
-		return create_time;
+	public Date getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreate_time(Long create_time) {
-		this.create_time = create_time;
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 
-	public Long getUpdate_time() {
-		return update_time;
+	public Date getUpdated_at() {
+		return updated_at;
 	}
 
-	public void setUpdate_time(Long update_time) {
-		this.update_time = update_time;
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
 	}
 
 	public String getState() {

@@ -1,6 +1,7 @@
 package app.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Account implements Serializable {
@@ -12,10 +13,10 @@ public class Account implements Serializable {
 	private String access_token;
 	private String refresh_token;
 	private int expires_in;
-	private Long create_time;
-	private Long update_time;
+	private Date created_at;
+	private Date updated_at;
 	private String state;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -72,20 +73,20 @@ public class Account implements Serializable {
 		this.expires_in = expires_in;
 	}
 
-	public Long getCreate_time() {
-		return create_time;
+	public Date getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreate_time(Long create_time) {
-		this.create_time = create_time;
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 
-	public Long getUpdate_time() {
-		return update_time;
+	public Date getUpdated_at() {
+		return updated_at;
 	}
 
-	public void setUpdate_time(Long update_time) {
-		this.update_time = update_time;
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
 	}
 
 	public String getState() {

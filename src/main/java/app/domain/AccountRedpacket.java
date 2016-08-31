@@ -1,6 +1,7 @@
 package app.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @SuppressWarnings("serial")
 public class AccountRedpacket implements Serializable {
@@ -11,7 +12,7 @@ public class AccountRedpacket implements Serializable {
 	private String mode;
 
 	private double amount;
-	private Long create_time;
+	private Date created_at;
 
 	public Account getAccount() {
 		return account;
@@ -45,12 +46,12 @@ public class AccountRedpacket implements Serializable {
 		this.amount = amount;
 	}
 
-	public Long getCreate_time() {
-		return create_time;
+	public Date getCreated_at() {
+		return created_at;
 	}
 
-	public void setCreate_time(Long create_time) {
-		this.create_time = create_time;
+	public void setCreated_at(Date created_at) {
+		this.created_at = created_at;
 	}
 
 }
