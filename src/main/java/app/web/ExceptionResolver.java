@@ -11,7 +11,7 @@ public class ExceptionResolver extends ExceptionHandlerExceptionResolver {
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
-		ModelAndView mav = new ModelAndView("error");
+		ModelAndView mav = new ModelAndView("500");
 		response.setStatus(500);
 		mav.addObject("exception", ex.getMessage());
 		return mav;

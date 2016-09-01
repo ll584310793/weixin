@@ -37,7 +37,6 @@ public class AccountRedpacketJob {
 			AccountRedpacket rs = (AccountRedpacket) redisTemplate.opsForSet().pop(key);
 			this.execute(rs);
 		}
-		log.info("account_redpacket load over..");
 	}
 
 	public void execute(AccountRedpacket accountRedpacket) {
@@ -48,10 +47,6 @@ public class AccountRedpacketJob {
 		if (wishing == null || wishing.isEmpty()) {
 			wishing = "事事顺意.";
 		}
-		log.info("send redpacket");
-		log.info("openid : " + openid);
-		log.info("amount : " + accountRedpacket.getAmount());
-		log.info("desc : " + desc);
 		int r = app.sendRedpacket(openid, amount, desc, wishing);
 		switch (r) {
 		case 1: // 完全成功
