@@ -17,7 +17,6 @@
 		<property name="minEvictableIdleTimeMillis" value="300000" />
 		<property name="poolPreparedStatements" value="true" />
 	</bean>
-
 	<bean id="jdbcTemplate" class="app.jdbc.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>

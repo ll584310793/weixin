@@ -35,7 +35,7 @@ public class PayController {
 		String nodify_url = request.getRequestURL().append("/nodify").toString();
 		String body = app.app_name + "-红包";
 
-		ModelAndView mav = new ModelAndView("/pay/pay");
+		ModelAndView mav = new ModelAndView("/redpacket/pay");
 		mav.addObject("wx_pay_config", app.unifiedorder(openid, body, total_fee, spbill_create_ip, nodify_url));
 		mav.addObject("wx_config", app.generateWxConfig(request.getRequestURL().toString()));
 		mav.addObject("redpacket", redpacket);
@@ -44,7 +44,7 @@ public class PayController {
 
 	@RequestMapping(value = "/{id}/nodify", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView _notify(@PathVariable Long id, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("/pay/nodify");
+		ModelAndView mav = new ModelAndView("/redpacket/nodify");
 		Redpacket redpacket = redpacketService.get(id);
 		mav.addObject("redpacket", redpacket);
 		return mav;
