@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
-<link rel="icon" href="${ctx }/images/favicon.ico">
+<link rel="icon" href="${ctx }/image/favicon.ico">
 <link rel="stylesheet" href="${ctx }/css/weui.min.css" />
 <script src="${ctx }/js/jweixin-1.0.0.js"></script>
 <script src="${ctx }/js/jquery.min.js"></script>

@@ -56,9 +56,8 @@
 		$("#open_redpacket").click(function() {
 			$('#open_redpacket').attr('disabled', "true");
 			$.ajax({
-				url : '${ctx}/redpackets/${redpacket.id }/generate',
+				url : '${ctx}/redpackets/${redpacket.id }/generate?mode=open',
 				type : 'get',
-				data : {"mode":"open"},
 				dataType : 'json',
 				success : function(r) {
 					alert("成功领取:" + r.amount + "红包,问律师马上发!");
